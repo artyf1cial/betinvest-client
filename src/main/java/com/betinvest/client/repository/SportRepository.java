@@ -11,8 +11,11 @@ public interface SportRepository extends JpaRepository<Sport, Integer> {
 
     List<Sport> findAll();
 
+    List<Sport> findByName(String name);
+
     @Query(" select s.id from Sport s")
     Set<Integer> getIdSet();
 
-    Sport findByName(String name);
+    @Query(" select s.id from Sport s where s.name=?1")
+    Integer getIdByName(String name);
 }

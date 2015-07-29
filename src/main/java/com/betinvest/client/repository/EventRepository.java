@@ -17,4 +17,6 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
 
     @Query(" select e.id from Event e")
     Set<Integer> getIdSet();
+
+    List<Event> findByLeagueIdAndDateTime(int leagueId, java.sql.Timestamp dateTime);
 }

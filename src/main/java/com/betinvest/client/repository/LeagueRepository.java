@@ -18,4 +18,6 @@ public interface LeagueRepository extends JpaRepository<League, Integer> {
     @Query(" select l.id from League l")
     Set<Integer> getIdSet();
 
+    @Query(" select l.id from League l where l.name= ?1 and l.country.id = ?2 and l.sport.id = ?3")
+    Integer getIdByNameAndCountryIdAndSportId(String name, Integer countryId, Integer sportId);
 }
